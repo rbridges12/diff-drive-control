@@ -1,7 +1,7 @@
 function [tout, yout] = simTrajectory(x)
     % TODO fill out
-    R = 2; % Radius of each wheel
-    L = 5; % Distance between wheels
+    R = 0.1; % Radius of each wheel
+    L = 0.5; % Distance between wheels
     tf = 5;
 
     % have x = angular velocity spline? x = [vl1, ... vln, vr1, ... vrn, tf];
@@ -16,7 +16,7 @@ function [tout, yout] = simTrajectory(x)
     odefun = @(t, y) [R/2*(interp_vel_r(t) + interp_vel_l(t)) * cos(y(3)); 
         R/2*(interp_vel_r(t) + interp_vel_l(t)) * sin(y(3));
         R/L * (interp_vel_r(t) - interp_vel_l(t))];
-    [tout, yout] = ode45(odefun, [0, tf], [0;0;pi/4]);
+    [tout, yout] = ode45(odefun, [0, tf], [0;0;0]);
 
 
 end
