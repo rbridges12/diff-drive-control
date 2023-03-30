@@ -1,7 +1,7 @@
 % nonlcon.m
 
 function [C, Ceq] = nonlcon(d)
-    TauLim = 1;
+    TauLim = 3;
     
     R = 0.1; % Radius of wheels
     L = 0.5; % Distance between wheels
