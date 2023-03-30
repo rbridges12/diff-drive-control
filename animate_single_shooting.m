@@ -1,4 +1,4 @@
-function animate_robot(ts, ys)
+function animate_single_shooting(ts, ys)
     FPS = 20;
 
     % make time sequence

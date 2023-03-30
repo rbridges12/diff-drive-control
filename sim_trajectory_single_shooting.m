@@ -1,4 +1,4 @@
-function [tout, yout] = simTrajectoryTorque(x)
+function [tout, yout] = sim_trajectory_single_shooting(x)
     R = 0.1; % Radius of each wheel
     L = 0.5; % Distance between wheels
     M = 5;
