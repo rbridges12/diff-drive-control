@@ -17,6 +17,4 @@ function [tout, yout] = simTrajectory(x)
         R/2*(interp_vel_r(t) + interp_vel_l(t)) * sin(y(3));
         R/L * (interp_vel_r(t) - interp_vel_l(t))];
     [tout, yout] = ode45(odefun, [0, tf], [0;0;0]);
-
-
 end
