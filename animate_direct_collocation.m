@@ -1,4 +1,4 @@
-function animate_direct_collocation(d)
+function animate_direct_collocation(d, path)
     % Extract states from design vector
     [ts, tauL, tauR, x, y, v, th, th_dot] = unpack_design_vector(d);
 
@@ -8,6 +8,10 @@ function animate_direct_collocation(d)
         hold on
         title('robot animation')
         arrow = [0 0; cos(th(iter)) sin(th(iter))];
+
+        % plot path
+
+        plot(path(:,1), path(:,2), 'bo-');
 
         % Plot the direction arrow
         plot(arrow(:, 1) + x(iter), arrow(:, 2) + y(iter), 'k-')
