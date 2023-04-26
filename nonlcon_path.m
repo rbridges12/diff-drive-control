@@ -1,7 +1,7 @@
 % nonlcon.m
 
 function [C, Ceq] = nonlcon_path(d, path)
-    TauLim = 0.05;
+    TauLim = 0.5;
     distLim = 0.5;
     
     R = 0.1; % Radius of wheels
@@ -54,7 +54,7 @@ function [C, Ceq] = nonlcon_path(d, path)
     for i = 1:N
         dists(i) = minDistance([x(i),y(i)], path);
     end
-    C = [dists - distLim];
+    %C = [dists - distLim];
 
 
     % Combine defect constraints
@@ -65,7 +65,7 @@ function [C, Ceq] = nonlcon_path(d, path)
     Ceq = [Ceq; dth_dot_hat - dth_dot_target];
 
     % Inequality constraints
-    C =[C;tauL - TauLim; tauR - TauLim; -tauR - TauLim; -tauL - TauLim; -tf];
+    C =[tauL - TauLim; tauR - TauLim; -tauR - TauLim; -tauL - TauLim; -tf];
 end
 
 
