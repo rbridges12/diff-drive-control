@@ -49,14 +49,6 @@ function [C, Ceq] = nonlcon_path(d, path)
     qf = [x(end); y(end); v(end); th(end); th_dot(end)];
     Ceq = [q0 - q0_target; qf - qf_target];
 
-    % Path following shortest distance constraints
-    dists = zeros(N,1);
-    for i = 1:N
-        dists(i) = minDistance([x(i),y(i)], path);
-    end
-    %C = [dists - distLim];
-
-
     % Combine defect constraints
     Ceq = [Ceq; dx_hat - dx_target];
     Ceq = [Ceq; dy_hat - dy_target];
