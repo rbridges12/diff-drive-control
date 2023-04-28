@@ -44,10 +44,10 @@ function [C, Ceq] = nonlcon_path(d, path)
 
     % Initial and final constraints
     q0_target = [path(1,1);path(1,2);0;0;0];
-    qf_target = [path(end,1);path(end,2);0;0;0];
+    %qf_target = [path(end,1);path(end,2);0;0;0];
     q0 = [x(1); y(1); v(1); th(1); th_dot(1)];
-    qf = [x(end); y(end); v(end); th(end); th_dot(end)];
-    Ceq = [q0 - q0_target; qf - qf_target];
+    %qf = [x(end); y(end); v(end); th(end); th_dot(end)];
+    Ceq = [q0 - q0_target];
 
     % Combine defect constraints
     Ceq = [Ceq; dx_hat - dx_target];
